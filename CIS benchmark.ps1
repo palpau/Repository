@@ -7,10 +7,10 @@ secedit /export /cfg $CfgPath
 
 # Define settings to update
 $SettingsToUpdate = @{
-    "PasswordHistorySize"   = "24"
-    "MaximumPasswordAge"    = "90"
-    "MinimumPasswordAge"    = "1"
-    "MinimumPasswordLength" = "14"
+Â Â Â  "PasswordHistorySize"Â Â  = "24"
+Â Â Â  "MaximumPasswordAge"Â Â Â  = "90"
+Â Â Â  "MinimumPasswordAge"Â Â Â  = "1"
+Â Â Â  "MinimumPasswordLength" = "14"
     "PasswordComplexity" = "1"
     "ClearTextPassword" = "0"
     "RequireLogonToChangePassword" = "0"
@@ -18,14 +18,14 @@ $SettingsToUpdate = @{
 
 # Read and update the file line-by-line
 $UpdatedLines = Get-Content $CfgPath | ForEach-Object {
-    $line = $_
-    foreach ($key in $SettingsToUpdate.Keys) {
-        if ($line -match "^$key\s*=") {
-            $line = "$key = $($SettingsToUpdate[$key])"
-            break
-        }
-    }
-    $line
+Â Â Â  $line = $_
+Â Â Â  foreach ($key in $SettingsToUpdate.Keys) {
+Â Â Â Â Â Â Â  if ($line -match "^$key\s*=") {
+Â Â Â Â Â Â Â Â Â Â Â  $line = "$key = $($SettingsToUpdate[$key])"
+Â Â Â Â Â Â Â Â Â Â Â  break
+Â Â Â Â Â Â Â  }
+Â Â Â  }
+Â Â Â  $line
 }
 
 # Write the updated content back to the file
