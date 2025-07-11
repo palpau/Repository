@@ -35,6 +35,16 @@ $UpdatedLines = Get-Content $CfgPath | ForEach-Object {
     $line
 }
 
+# Append CIS 2.2.2 setting to the config file
+Add-Content $CfgPath "`n[Privilege Rights]"
+Add-Content $CfgPath "SeNetworkLogonRight = *S-1-5-32-544, *S-1-5-32-555"
+Add-Content $CfgPath "SeTcbPrivilege ="
+Add-Content $CfgPath "SeIncreaseQuotaPrivilege = *S-1-5-19, *S-1-5-20, *S-1-5-32-544"
+Add-Content $CfgPath "SeInteractiveLogonRight = *S-1-5-32-544, *S-1-5-32-545"
+Add-Content $CfgPath "SeRemoteInteractiveLogonRight = *S-1-5-32-544, *S-1-5-32-555"
+Add-Content $CfgPath "SeBackupPrivilege = *S-1-5-32-544"
+
+
 # Write the updated content back to the file
 $UpdatedLines | Set-Content $CfgPath
 
