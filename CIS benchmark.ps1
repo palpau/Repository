@@ -1,3 +1,6 @@
+# Perma link
+# https://github.com/palpau/Repository/blob/780df33052b0d95358eb91be37d5c62cbd149566/CIS%20benchmark.txt
+
 # Define the path to the exported config file
 $TempPath = $env:TEMP
 $CfgPath = Join-Path $TempPath "secpol.cfg"
@@ -14,6 +17,10 @@ $SettingsToUpdate = @{
     "PasswordComplexity" = "1"
     "ClearTextPassword" = "0"
     "RequireLogonToChangePassword" = "0"
+    "LockoutBadCount" = "5"
+    "AllowAdministratorLockout" = "1"
+    "LockoutDuration" = "15"
+
 }
 
 # Read and update the file line-by-line
